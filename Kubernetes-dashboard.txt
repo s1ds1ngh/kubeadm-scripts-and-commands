@@ -1,0 +1,34 @@
+Run this to create namespace and other services - 
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.7.0/aio/deploy/recommended.yaml
+
+Verify by getting the namespaces - 
+kubectl get ns
+
+Verify the pods created in the namespace - 
+kubectl -n kubernetes-dashboard get pods -o wide
+
+To get the svc - 
+kubectl -n kubernetes-dashboard get svc
+
+kubectl get all -n kubernetes-dashboard
+
+Edit the service and replace the type from ClusterIP to NodePort - 
+kubectl edit service/kubernetes-dashboard -n kubernetes-dashboard
+
+Open the dashboard in browser - 
+https://ip-address:port
+
+Commands - https://github.com/subodhdere/SuccessStory/blob/master/kubernetes/dashboard
+
+
+kubectl get clusterrolebinding admin-user -o yaml
+kubectl get secrets -n kubernetes-dashboard
+kubectl get serviceaccount admin-user -n kubernetes-dashboard
+kubectl create token admin-user -n kubernetes-dashboard
+
+
+Token - 
+eyJhbGciOiJSUzI1NiIsImtpZCI6ImNDN0hUSEtNRmlzbnlYbGtlTVAxX254SkhmODFGcTdvSTVQc29ZVXRSeUkifQ.eyJhdWQiOlsiaHR0cHM6Ly9rdWJlcm5ldGVzLmRlZmF1bHQuc3ZjLmNsdXN0ZXIubG9jYWwiXSwiZXhwIjoxNzQwMDUxMTIzLCJpYXQiOjE3NDAwNDc1MjMsImlzcyI6Imh0dHBzOi8va3ViZXJuZXRlcy5kZWZhdWx0LnN2Yy5jbHVzdGVyLmxvY2FsIiwianRpIjoiZGVlZmFjNGUtMjdjZC00NWFhLWJjNDktN2RiNjRjNjY3MjRhIiwia3ViZXJuZXRlcy5pbyI6eyJuYW1lc3BhY2UiOiJrdWJlcm5ldGVzLWRhc2hib2FyZCIsInNlcnZpY2VhY2NvdW50Ijp7Im5hbWUiOiJhZG1pbi11c2VyIiwidWlkIjoiNzJhZmIxZTctZDM3MS00MDAzLTlmNTMtNmMzZDAwYWExYWI1In19LCJuYmYiOjE3NDAwNDc1MjMsInN1YiI6InN5c3RlbTpzZXJ2aWNlYWNjb3VudDprdWJlcm5ldGVzLWRhc2hib2FyZDphZG1pbi11c2VyIn0.hZwoDJNGgVmUFdc6tpkZWLzePdP4h3qka-pBeraYC3LlP7T-rv4G70ca9EMD3kJsJT9qjb8JLCA54e16ozOyRX6H_XY550FwU8DzKQlGcxFWi8086z3gnQknLBubsmKCJZOML9v8BdXIhTjicD7Y8PhOq7X7LGE8EUVcV9wPHL8p2x9uVysAQxxIJqmiXaOUUQqP7bw2snAUFPoS7X4kISHW2cq5CzL-R_KRKoNQqK6wxddvlcweVJuWoHgoykHGjxYG56chlQUHixZDPsVqk9d9O7S6kC3At3C3kRCk5TBHTNRNVI2bhlDthdaV3F8f5TLRsCXGf2I4q6Dev6fXXQ
+
+
+
